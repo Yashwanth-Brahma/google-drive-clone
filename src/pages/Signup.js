@@ -37,13 +37,20 @@ const Signup = () => {
         <p className="error">{error && error}</p>
         <form onSubmit={handleSubmit}>
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" ref={emailRef} />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            ref={emailRef}
+            className="input"
+          />
           <label htmlFor="password">Password</label>
           <input
             type="password"
             name="password"
             id="password"
             ref={passwordRef}
+            className="input"
           />
           <label htmlFor="confPassword">Confirm Password</label>
           <input
@@ -51,8 +58,9 @@ const Signup = () => {
             name="ConfPassword"
             id="Confpassword"
             ref={confirmPasswordRef}
+            className="input"
           />
-          <button type="submit" disabled={loading}>
+          <button type="submit" disabled={loading} className="btn">
             Sign Up
           </button>
         </form>

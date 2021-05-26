@@ -30,8 +30,14 @@ const ForgotPassword = () => {
           <p className="error">{message && message}</p>
           <form onSubmit={handleSubmit}>
             <label htmlFor="email">Email</label>
-            <input type="email" name="emal" id="email" ref={emailRef} />
-            <button type="submit" disabled={loading}>
+            <input
+              type="email"
+              name="emal"
+              id="email"
+              ref={emailRef}
+              className="input"
+            />
+            <button type="submit" disabled={loading} className="btn">
               Submit
             </button>
             <Link to="/login">Login</Link>

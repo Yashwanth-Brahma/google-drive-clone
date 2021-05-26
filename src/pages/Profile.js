@@ -12,9 +12,13 @@ const Profile = () => {
         <h1>Profile</h1>
         <h3>User Name : {currentUser.email}</h3>
         <button>
-          <Link to="/">Back Home</Link>
+          <Link to="/" className="link1">
+            Back Home
+          </Link>
         </button>
-        <Link to="/updateprofile">Update Profile</Link>
+        <Link className="link2" to="/updateprofile">
+          Update Profile
+        </Link>
       </div>
     </Wrapper>
   );
@@ -25,9 +29,31 @@ const Wrapper = styled.div`
   margin-top: 8rem;
   div {
     width: 400px;
-    border: 1px solid gray;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px gray;
     padding: 1rem;
     display: grid;
+    gap: 1rem;
+    background-color: #00509d;
+    color: #fff;
+
+    button {
+      background-color: #fff;
+      border: 1px solid white;
+      padding: 0.5rem;
+      border-radius: 5px;
+    }
+    .link1 {
+      text-decoration: none;
+      color: #00509d;
+      font-family: "Courier New", Courier, monospace;
+      font-weight: bolder;
+      font-size: 18px;
+      padding: 0.5rem 8rem;
+    }
+    .link2 {
+      color: #fff;
+    }
   }
 `;
 export default Profile;

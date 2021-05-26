@@ -32,15 +32,22 @@ const Login = () => {
         <p className="error">{error && error}</p>
         <form onSubmit={handleSubmit}>
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" ref={emailRef} />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            ref={emailRef}
+            className="input"
+          />
           <label htmlFor="password">Password</label>
           <input
             type="password"
             name="password"
             id="password"
             ref={paswordRef}
+            className="input"
           />
-          <button type="submit" disabled={loading}>
+          <button type="submit" disabled={loading} className="btn">
             Login
           </button>
         </form>

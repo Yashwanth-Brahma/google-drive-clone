@@ -21,6 +21,9 @@ const App = () => {
             <PrivateRoute exact path="/">
               <Home />
             </PrivateRoute>
+            <PrivateRoute exact path="/folder/:folderid">
+              <Home />
+            </PrivateRoute>
             <PrivateRoute path="/profile">
               <Profile />
             </PrivateRoute>

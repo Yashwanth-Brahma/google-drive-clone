@@ -44,6 +44,7 @@ const UpdateProfile = () => {
             id="email"
             ref={emailRef}
             defaultValue={currentUser.email}
+            className="input"
           />
           <label htmlFor="password">Password</label>
           <input
@@ -51,6 +52,7 @@ const UpdateProfile = () => {
             name="password"
             id="password"
             ref={passwordRef}
+            className="input"
           />
           <label htmlFor="confPassword">Confirm Password</label>
           <input
@@ -58,8 +60,9 @@ const UpdateProfile = () => {
             name="ConfPassword"
             id="Confpassword"
             ref={confirmPasswordRef}
+            className="input"
           />
-          <button type="submit" disabled={loading}>
+          <button type="submit" disabled={loading} className="btn">
             Sign Up
           </button>
         </form>

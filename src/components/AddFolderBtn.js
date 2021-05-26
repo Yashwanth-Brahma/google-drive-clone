@@ -3,6 +3,7 @@ import { BiFolderPlus } from "react-icons/bi";
 import styled from "styled-components";
 import { useGlobalContext } from "../context/AuthProvider";
 import { database } from "../firebase/firebaseConfig";
+import { ROOT_FOLDER } from "../hooks/useFolder";
 
 const AddFolderBtn = ({ currentFolder }) => {
   const [name, setName] = useState("");
@@ -20,22 +21,26 @@ const AddFolderBtn = ({ currentFolder }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (currentFolder === null) return;
-
+    if (currentFolder === null || name === "") return;
+    const path = [...currentFolder.path];
+    if (currentFolder !== ROOT_FOLDER) {
+      path.push({ name: currentFolder.name, id: currentFolder.id });
+    }
     database.folder.add({
       name: name,
       parentId: currentFolder.id,
       userId: currentUser.uid,
       currentTimeStamp: database.currentTimeStamp(),
+      path: path,
     });
     setName("");
     setOpen(false);
   };
   return (
     <Wrapper>
-      <button onClick={openModal}>
+      <p onClick={openModal} className="add">
         <BiFolderPlus />
-      </button>
+      </p>
       {open && (
         <div
           onClick={(e) => {
@@ -79,12 +84,13 @@ const Wrapper = styled.div`
   form {
     display: flex;
     flex-direction: column;
-
     background-color: #fff;
     padding: 2rem;
     max-height: fit-content;
     width: 400px;
     height: 100px;
+    border-radius: 5px;
+
     input {
       height: 20px;
       margin-bottom: 2rem;
@@ -92,8 +98,31 @@ const Wrapper = styled.div`
     }
     .btn1 {
       display: flex;
-      justify-content: right;
+      justify-content: flex-end;
+      button {
+        color: #38b000;
+        border: 1px solid #38b000;
+        margin-left: 1rem;
+        background-color: #fff;
+        padding: 00.3rem 0.8rem;
+        border-radius: 4px;
+      }
+      button:hover {
+        color: #fff;
+        background-color: #38b000;
+      }
     }
+  }
+  .add {
+    color: #38b000;
+    border: 2px solid #38b000;
+    padding: 0.4rem 0.3rem;
+    border-radius: 4px;
+    background-color: #fff;
+  }
+  .add:hover {
+    color: white;
+    background-color: #38b000;
   }
 `;
 export default AddFolderBtn;

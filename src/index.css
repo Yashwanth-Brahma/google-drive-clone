@@ -7,6 +7,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+  background-color: #fffcf2;
 }
 
 code {
@@ -17,4 +18,21 @@ code {
 .container {
   width: 80%;
   margin: auto;
+}
+
+.btn {
+  color: #02c39a;
+  background-color: #fff;
+  border: 1px solid #02c39a;
+  padding: 0.5rem 0;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.btn:hover {
+  color: #fff;
+  background-color: #02c39a;
+}
+.input {
+  padding: 0.5rem 0.5rem;
 }
